@@ -3,19 +3,17 @@ import {TypeOrmModule} from "@nestjs/typeorm";
 import {GraphQLModule} from "@nestjs/graphql";
 
 import {UserModule} from "./user/user.module";
-import ormconfig from "./ormconfig";
+import {GqlConfigService} from "./graphql.options";
+import {TypeOrmConfigService} from "./typeorm.options";
 
 
 @Module({
   imports: [
-    TypeOrmModule.forRoot(ormconfig),
+    TypeOrmModule.forRootAsync({
+      useClass: TypeOrmConfigService,
+    }),
     GraphQLModule.forRootAsync({
-      useFactory: () => ({
-        debug: process.env.NODE_ENV !== "production",
-        playground: process.env.NODE_ENV !== "production",
-        context: ({req}): {req: Request} => ({req}),
-        autoSchemaFile: "./schema.gql",
-      }),
+      useClass: GqlConfigService,
     }),
     UserModule,
   ],
