@@ -1,0 +1,1 @@
+# graphql-global-validation-pipeline
