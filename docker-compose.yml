@@ -24,7 +24,6 @@ services:
       HOST: "0.0.0.0"
       PORT: 3000
       POSTGRES_URL: postgres://postgres:password@postgres/postgres
-      JWT_SECRET_KEY: keyboard_cat
     depends_on:
       - postgres
     links:
