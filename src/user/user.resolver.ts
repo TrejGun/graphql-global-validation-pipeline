@@ -3,7 +3,7 @@ import {Int} from "type-graphql";
 
 import {UserEntity} from "./user.entity";
 import {UserService} from "./user.service";
-import {UserCreateType, UserListType, UserType} from "./types";
+import {UserCreateInputType, UserListType, UserType} from "./types";
 
 
 @Resolver()
@@ -16,7 +16,7 @@ export class UserResolver {
   }
 
   @Mutation(_returns => UserType)
-  public createUser(@Args("input") data: UserCreateType): Promise<UserEntity> {
+  public createUser(@Args("input") data: UserCreateInputType): Promise<UserEntity> {
     return this.userService.create(data);
   }
 

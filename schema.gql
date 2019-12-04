@@ -4,7 +4,7 @@
 # -----------------------------------------------
 
 type Mutation {
-  createUser(input: UserCreateType!): UserType!
+  createUser(input: UserCreateInputType!): UserType!
 }
 
 type Query {
@@ -12,7 +12,7 @@ type Query {
   listUsers: UserListType!
 }
 
-input UserCreateType {
+input UserCreateInputType {
   email: String!
   password: String!
   roles: [UserRole!]!

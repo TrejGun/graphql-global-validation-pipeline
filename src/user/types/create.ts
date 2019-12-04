@@ -4,7 +4,7 @@ import {IUserCreateFields, UserRole} from "../interfaces";
 
 
 @InputType()
-export class UserCreateType implements IUserCreateFields {
+export class UserCreateInputType implements IUserCreateFields {
   @Field()
   @IsEmail()
   readonly email: string;
