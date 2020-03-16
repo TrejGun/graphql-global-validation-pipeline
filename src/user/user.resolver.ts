@@ -1,10 +1,9 @@
-import {Args, Query, Mutation, Resolver} from "@nestjs/graphql";
-import {Int} from "type-graphql";
+import {Args, Query, Mutation, Resolver,Int} from "@nestjs/graphql";
+
 
 import {UserEntity} from "./user.entity";
 import {UserService} from "./user.service";
 import {UserCreateInputType, UserListType, UserType} from "./types";
-
 
 @Resolver()
 export class UserResolver {
@@ -24,5 +23,4 @@ export class UserResolver {
   public listUsers(): Promise<UserListType> {
     return this.userService.findAndCount().then(([list, count]) => ({list, count}));
   }
-
 }
