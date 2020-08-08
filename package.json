@@ -71,7 +71,7 @@
     "prebuild": "rm -rf dist/",
     "prod": "NODE_ENV=production node .",
     "start": "NODE_ENV=development tsc-watch --onSuccess \"node .\" --onFailure \"echo Compilation Failed\"",
-    "test": "NODE_ENV=test jest --config jest.config.json",
+    "test": "NODE_ENV=test jest --config jest.config.json --detectOpenHandles",
     "typeorm": "NODE_ENV=development ts-node ./node_modules/.bin/typeorm --config src/ormconfig.ts"
   },
   "title": "JWT based authorization for Nest.js",

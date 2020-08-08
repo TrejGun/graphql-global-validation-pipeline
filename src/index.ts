@@ -1,6 +1,5 @@
 import "./env";
 import {NestFactory} from "@nestjs/core";
-import {ValidationPipe} from "@nestjs/common";
 import {useContainer} from "class-validator";
 
 import {ApplicationModule} from "./app.module";
@@ -8,13 +7,6 @@ import {ApplicationModule} from "./app.module";
 
 async function bootstrap(): Promise<void> {
   const app = await NestFactory.create(ApplicationModule);
-
-  app.useGlobalPipes(
-    new ValidationPipe({
-      transform: true,
-      forbidUnknownValues: true,
-    }),
-  );
 
   useContainer(app.select(ApplicationModule), {fallbackOnErrors: true});
 
@@ -27,4 +19,4 @@ async function bootstrap(): Promise<void> {
   });
 }
 
-bootstrap();
+void bootstrap();

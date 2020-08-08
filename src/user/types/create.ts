@@ -1,18 +1,19 @@
 import {Field, InputType} from "@nestjs/graphql";
-import {IsEmail, MinLength, IsEnum} from "class-validator";
+import {IsEmail, IsEnum, IsString, MinLength} from "class-validator";
 import {IUserCreateFields, UserRole} from "../interfaces";
 
 @InputType()
 export class UserCreateInputType implements IUserCreateFields {
   @Field()
   @IsEmail()
-  readonly email: string;
+  public email: string;
 
   @Field()
+  @IsString()
   @MinLength(6)
-  readonly password: string;
+  public password: string;
 
   @Field(_type => [UserRole])
   @IsEnum(UserRole, {each: true})
-  roles: UserRole[];
+  public roles: UserRole[];
 }
