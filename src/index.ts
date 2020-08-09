@@ -1,12 +1,13 @@
 import "./env";
 import {NestFactory} from "@nestjs/core";
+import {NestExpressApplication} from "@nestjs/platform-express";
 import {useContainer} from "class-validator";
 
 import {ApplicationModule} from "./app.module";
 
 
 async function bootstrap(): Promise<void> {
-  const app = await NestFactory.create(ApplicationModule);
+  const app = await NestFactory.create<NestExpressApplication>(ApplicationModule);
 
   useContainer(app.select(ApplicationModule), {fallbackOnErrors: true});
 
