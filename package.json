@@ -54,10 +54,10 @@
   },
   "license": "MIT",
   "main": "./dist/index.js",
-  "name": "jwt-based-authorization-for-nestjs",
+  "name": "graphql-global-validation-pipeline",
   "repository": {
     "type": "git",
-    "url": "https://github.com/TrejGun/jwt-based-authorization-for-nestjs"
+    "url": "https://github.com/TrejGun/graphql-global-validation-pipeline"
   },
   "scripts": {
     "build": "tsc",

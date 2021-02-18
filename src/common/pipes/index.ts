@@ -1,1 +1,1 @@
-export * from "./custom-validation-pipe";
+export * from "./http.validation";

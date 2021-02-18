@@ -6,13 +6,13 @@ import {GraphQLModule} from "@nestjs/graphql";
 import {UserModule} from "./user/user.module";
 import {GqlConfigService} from "./graphql.options";
 import {TypeOrmConfigService} from "./typeorm.options";
-import {CustomValidationPipe} from "./common/pipes";
+import {HttpValidationPipe} from "./common/pipes";
 
 @Module({
   providers: [
     {
       provide: APP_PIPE,
-      useClass: CustomValidationPipe,
+      useClass: HttpValidationPipe,
     },
   ],
   imports: [
